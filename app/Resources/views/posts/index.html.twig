@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Posts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Summary</th>
+                <th>Content</th>
+                <th>Createdat</th>
+                <th>Author</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td><a href="{{ path('posts_show', { 'id': post.id }) }}">{{ post.id }}</a></td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.summary }}</td>
+                <td>{{ post.content }}</td>
+                <td>{{ post.createdAt|date("m/d/Y h:m:s") }}</td>
+                <td>{{ post.author }}</td>
+                <td>{{ post.image }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('posts_show', { 'id': post.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('posts_edit', { 'id': post.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('posts_new') }}">Create a new post</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>test</title>
+        <link rel="stylesheet"
+              href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+
+        <link rel="stylesheet"
+              href="{{ asset('assets/css/clean-blog.min.css') }}">
+        <link rel="stylesheet"
+              href="{{ asset('assets/css/main.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <header class="intro-header" style="background-image: url('{{ asset('assets/img/home-bg.jpg') }}')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="site-heading">
+                            <h1>Clean Blog</h1>
+                            <hr class="small">
+                            <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid" >
+            <div class="row">
+
+                {% for flash in app.session.flashBag.get('alert') %}
+                    <div id="notice" class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{ flash }}
+                    </div>
+                {% endfor %}
+                
+                {% for flash in app.session.flashBag.get('success') %}
+                    <div id="notice" class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{ flash }}
+                    </div>
+                {% endfor %}
+
+                {% include "yhblogBundle:Templates:Menu/default.html.twig" %}
+            {% block navigation %}{% endblock %}
+
+        {% block fos_user_content %}{% endblock %}
+    </div>
+</div>
+
+<script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/clean-blog.min.js') }}"></script>
+</body>
+</html>
+

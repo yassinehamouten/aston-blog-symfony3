@@ -1,0 +1,48 @@
+{% extends 'yhblogBundle:Templates:postView.html.twig' %}
+{% block body %}
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    {% if allowed %}
+                        <div class="text-right">
+                            <a href="edit"> <input class="btn btn-primary" value="éditer l'article"> </a>
+                        </div>
+                    {% endif %}
+                    {{ post.contenthtml|raw  }}
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="commentaires">
+                        {% if user %}
+                            Commentaires
+
+                            {{ dump(comments) }}
+
+                            {{ form_start(form) }}
+                            <div class="form-group">
+                                <label for="yh_postbundle_posts_image">Ajouter un commentaire</label>
+                                {{ form_widget(form.comment,{ 'attr': {'class': 'form-control', "placeholder": "Votre commentaire", "style": "max-width:100%"} }) }}
+                            </div>
+                            <div class="text-center">
+                                <input type="submit" class="btn btn-default" value="Commenter" />
+                            </div>
+                            {{ form_end(form) }}
+                        {% else %}
+                            Il faut être connecter pour laisser un commentaire
+                        {% endif %}
+
+                        {% for comment in comments %}
+                            <div class="col-xs-12">
+                                <div class="commentaire">
+                                    {{ comment.comment }}
+                                    <p class="commentaire-meta">
+                                        Posté par <a href="../../users/{{ comment.username }}">{{ comment.username }}</a> le {{ comment.createdAt|date("m/d/Y h:m:s") }}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+    </article>
+{% endblock %}

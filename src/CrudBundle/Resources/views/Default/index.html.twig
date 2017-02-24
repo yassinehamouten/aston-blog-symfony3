@@ -1,0 +1,10 @@
+{% extends 'IKNSAAppBundle:Templates:default.html.twig' %}
+
+{% block body %}
+    <div class="col-xs-12">
+        Hello World!
+        {{test}}
+        {% set variable = "test variable" %}
+        <br>{{ variable }}
+    </div>
+{% endblock %}

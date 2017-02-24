@@ -1,0 +1,24 @@
+posts_index:
+    path:     /
+    defaults: { _controller: "yhpostBundle:Posts:index" }
+    methods:  GET
+
+posts_show:
+    path:     /{id}/show
+    defaults: { _controller: "yhpostBundle:Posts:show" }
+    methods:  [GET, POST]
+
+posts_new:
+    path:     /new
+    defaults: { _controller: "yhpostBundle:Posts:new" }
+    methods:  [GET, POST]
+
+posts_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "yhpostBundle:Posts:edit" }
+    methods:  [GET, POST]
+
+posts_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "yhpostBundle:Posts:delete" }
+    methods:  DELETE

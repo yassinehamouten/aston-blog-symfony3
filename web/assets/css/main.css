@@ -1,0 +1,26 @@
+.form-control{
+    border-radius: 0px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.commentaires{
+    padding: 50px 0px;
+}
+
+.commentaires .commentaire{
+    margin-top: 10px;
+
+    overflow-wrap: break-word;
+}
+
+.commentaires .commentaire .commentaire-meta{
+    color: #777;
+    font-size: 18px;
+    font-style: italic;
+    margin: 0;
+}
+
+

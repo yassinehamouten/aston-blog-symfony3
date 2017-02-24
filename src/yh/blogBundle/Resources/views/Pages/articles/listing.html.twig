@@ -1,0 +1,23 @@
+{% extends 'yhblogBundle:Templates:default.html.twig' %}
+{% block body %}
+    {% for post in posts %}
+
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" data-article-id="{{ post.id }}">
+            <article class="post-preview">
+                <a href="{{ path('posts_show', { 'id': post.id }) }}">
+                    <h2 class="post-title">
+                        {{ post.title }}
+                    </h2>
+
+                    <h3 class="post-subtitle">
+                        {{ post.summary }}
+                    </h3>
+                </a>
+                <p class="post-meta">
+                    Posté par <a href="">{{ post.author }}</a> le {{ post.createdAt|date("m/d/Y h:m:s") }}
+                </p>
+            </article>
+        </div>
+    {% endfor %}
+
+{% endblock %}

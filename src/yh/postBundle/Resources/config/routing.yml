@@ -1,0 +1,3 @@
+yhpost_posts:
+    resource: "@yhpostBundle/Resources/config/routing/posts.yml"
+    prefix:   /posts

@@ -1,0 +1,29 @@
+yhblog_users:
+    resource: "@yhblogBundle/Resources/config/routing/users.yml"
+    prefix:   /blog/users
+
+yhblog_homepage:
+    path:     /
+    defaults: { _controller: "yhpostBundle:Posts:index" }
+    methods:  GET
+    
+
+yhblog_api:
+    path:     /api/posts
+    defaults: { _controller: "yhblogBundle:Api:posts" }
+    methods:  GET
+
+yhblog_api_post:
+    path:     /api/posts/{id}
+    defaults: { _controller: "yhblogBundle:Api:posts" }
+    methods:  GET
+    
+yhblog_api_post_offset_end:
+    path:     /api/posts/offset/{start}
+    defaults: { _controller: "yhblogBundle:Api:postsOffset" }
+    methods:  GET
+    
+yhblog_api_post_offset:
+    path:     /api/posts/offset/{start}/{offset}
+    defaults: { _controller: "yhblogBundle:Api:postsOffset" }
+    methods:  GET

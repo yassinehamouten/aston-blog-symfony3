@@ -1,0 +1,12 @@
+yh\blogBundle\Entity\users:
+    type: entity
+    table: null
+    repositoryClass: yh\blogBundle\Repository\usersRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    lifecycleCallbacks: {  }

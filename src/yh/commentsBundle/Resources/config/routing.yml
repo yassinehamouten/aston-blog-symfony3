@@ -1,0 +1,4 @@
+yhcomments_comments:
+    resource: "@yhcommentsBundle/Resources/config/routing/comments.yml"
+    prefix:   /comments
+

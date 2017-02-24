@@ -1,0 +1,49 @@
+{% extends 'yhblogBundle:Templates:postEdit.html.twig' %}
+
+{% block body %}
+    <div class="col-xs-12">
+        <div class="text-center"><h1>Ecrire un article</h1></div>
+
+        {{ form_start(form) }}
+        <div class="col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label for="yh_postbundle_posts_title">Titre</label>
+                {{ form_widget(form.title,{ 'attr': {'class': 'form-control', "placeholder": "Titre"} }) }}
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label for="yh_postbundle_posts_image">Image</label>
+                {{ form_widget(form.file,{ 'attr': {'class': 'form-control', "placeholder": "Image"} }) }}
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="yh_postbundle_posts_summary">Résumé</label>
+                {{ form_widget(form.summary,{ 'attr': {'class': 'form-control', "placeholder": "résumé", "style": "max-width:100%"} }) }}
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="yh_postbundle_posts_content">Contenu de l'article</label>
+                {{ form_widget(form.content,{ 'attr': {'class': 'form-control', "placeholder": "Contenu", "style": "max-width:100%", "rows": "7"} }) }}
+            </div>
+        </div>
+            <div class="col-xs-12">
+            <div class="form-group">
+                {{ form_widget(form.content,{ 'attr': {'class': 'form-control', "placeholder": "Contenu", "style": "max-width:100%", "rows": "7"} }) }}
+            </div>
+        </div>
+        <input name="contenu" type="hidden">
+        <div class="col-xs-12">
+            <div id="editor" style="height:200px; margin-bottom: 50px;">
+            </div>
+        </div>
+        <div class="text-center">
+            <input type="submit" class="btn btn-default" value="Créer" />
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
